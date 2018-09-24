@@ -3,3 +3,7 @@
 .env
 .idea
 .python-version
+
+dist
+build
+*.egg-info
