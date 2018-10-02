@@ -2,6 +2,21 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+OP_HEADLESS = '--headless'
+OP_NO_SANDBOX = '--no-sandbox'
+OP_DISABLE_GPU = '--disable-gpu'
+OP_DISABLE_POPUP_BLOCING = '--disable-popup-blocking'
+OP_DISABLE_EXTENSIONS = "--disable-extensions"
+OP_START_MAXIMIZED = '--start-maximized'
+
+OP_LANG_EN_US = '--lang=en-US'
+OP_LANG_JA = '--lang=ja'
+
+OP_UA_OSX_HIGH_SIERRA = \
+    '--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) ' \
+    'AppleWebKit/605.1.15 (KHTML, like Gecko) ' \
+    'Chrome/69.0.3497.100 Safari/605.1.15'
+
 
 def enable_headless_download(driver, downloadpath):
     driver.command_executor._commands["send_command"] = \

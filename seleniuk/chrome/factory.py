@@ -34,9 +34,16 @@ class DriverFactory:
     def __init__(self, driverpath=None, options=None,
                  setup_func=None, *args, **kwargs):
 
+        if hasattr(options, '__iter__'):
+            _options = ChromeOptions()
+            for op in options:
+                _options.add_argument('--no-sandbox')
+            options = _options
+
         if options is not None \
                 and not isinstance(options, ChromeOptions):
-            raise TypeError("chrome_options must be 'webdriver.ChromeOptions'")
+            raise TypeError("'chrome_options' must be "
+                            "'webdriver.ChromeOptions' or iteration of 'str'.")
 
         self.driverpath = self.__format_driverpath(driverpath)
         self.options = options or ChromeOptions()
